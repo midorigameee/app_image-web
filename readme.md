@@ -15,7 +15,6 @@ DockerでFlaskアプリを動かすためのリポジトリ
 >　https://solodev.io/git-flow/
 
 
-
 # Development environment
 ローカルはAnacondaで仮想環境を作成して挙動を確認する。
 
@@ -30,3 +29,21 @@ Anacondaのversionは以下の通り
 パッケージはpip、condaそれぞれ以下のコマンドで出力した。
 > $ pip freeze > requirements.txt
 > $ conda list > conda_list.txt
+
+## Docker information
+（間違っている箇所あったらスミマセン）
+
+コンテナの初回起動時はDockerfileを読み込み、imageを生成する。
+
+そのときのDockerfileのコマンドが実行される。
+
+2回目以降（イメージ生成済みでコンテナ起動）はDockerfileのコマンドは実行されず、docker-compose.ymlのコマンドのみが実行される。
+
+### Frequently used commands for me
+$ docker compose up -d  
+$ docker compose ps
+$ docker compoes exec [SERVICE NAME] bash  
+    ex) $ docker compoes exec python3 bash  
+$ docker compose down  
+$ docker image ls  
+$ docker imare rm [IMAGE ID]  
