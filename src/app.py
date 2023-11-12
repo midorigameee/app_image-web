@@ -147,7 +147,7 @@ def checkImgExtension(img_list):
 
 
 if __name__ == "__main__":
-    if sys.argv[1] == "debug":
+    if len(sys.argv) >= 2 and sys.argv[1] == "debug":
         app.run(host="0.0.0.0", debug=True)
     else:
         app.run(host="0.0.0.0", debug=False)
