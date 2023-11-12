@@ -1,7 +1,22 @@
 # About
 DockerでFlaskアプリを動かすためのリポジトリ
 
-# Developing environment
+# Development policy
+（個人開発だけどせっかくだしポリシーを作ってみる）
+
+- ブランチの使い分け
+  - masterブランチには常に確実に動作するソースを置くようにする。
+  - その他開発はfeature/hogehogeを使用する。
+- 新しい機能を実装するとき
+  - masterからfeature/hogehogeというトピックブランチを作成する。
+  - 開発環境でトピックブランチで動作確認完了後にプルリクを出してmasterにマージする。
+
+以下のページを参考にしました。
+>　https://solodev.io/git-flow/
+
+
+
+# Development environment
 ローカルはAnacondaで仮想環境を作成して挙動を確認する。
 
 ## Anaconda infomation
