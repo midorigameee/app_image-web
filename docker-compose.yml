@@ -4,7 +4,11 @@ services:
     restart: always
     build: .  # Dockerfileをimageとして読み込んでいるという意味
     container_name: 'python3'
+    ports:
+      - 5000:5000
     working_dir: '/root/'
     tty: true
     volumes:
-      - ./src:$HOME/python_app
+      - ./src:/root/python_app
+    command:
+      pip install -r python_app/requirements.txt
