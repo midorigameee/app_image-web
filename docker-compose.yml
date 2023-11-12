@@ -11,4 +11,4 @@ services:
     volumes:
       - ./src:/root/python_app
     command:
-      pip install -r python_app/requirements.txt
+      pip install --root-user-action=ignore -r python_app/requirements.txt
