@@ -10,5 +10,6 @@ services:
     tty: true
     volumes:
       - ./src:/root/python_app
+    # 動作確認用にlsコマンドを実行している
     command: >-
-      bash -c 'pip install --root-user-action=ignore -r /root/python_app/requirements.txt; python3'
+      bash -c 'pip install --root-user-action=ignore -r /root/python_app/requirements.txt; ls ./python_app; python ./python_app/app.py' 
