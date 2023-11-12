@@ -10,5 +10,5 @@ services:
     tty: true
     volumes:
       - ./src:/root/python_app
-    command:
-      pip install --root-user-action=ignore -r python_app/requirements.txt
+    command: >-
+      bash -c 'pip install --root-user-action=ignore -r /root/python_app/requirements.txt; python3'

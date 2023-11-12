@@ -16,12 +16,4 @@ RUN apt-get install -y git
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 
-# RUN apt-get install libgl1-mesa-dev
-
-# WORKDIR $HOME
-# RUN mkdir workspace
-
-# WORKDIR $HOME/workspace/
-# RUN git clone https://github.com/midorigameee/app_image-web.git
-
-
+# RUN apt-get install libgl1-mesa-dev   # opencv-pythonを入れるために必要らしい、、、しかしこのタイミングだとインストールできない
