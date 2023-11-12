@@ -18,7 +18,10 @@ RUN pip install --upgrade setuptools
 
 # RUN apt-get install libgl1-mesa-dev
 
-WORKDIR $HOME/docker_containers/flask_app/src
-RUN git clone https://github.com/midorigameee/study-python_flask.git
+# WORKDIR $HOME
+# RUN mkdir workspace
+
+# WORKDIR $HOME/workspace/
+# RUN git clone https://github.com/midorigameee/app_image-web.git
 
 
