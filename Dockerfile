@@ -16,4 +16,6 @@ RUN apt-get install -y git
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 
+EXPOSE 5000
+
 # RUN apt-get install libgl1-mesa-dev   # opencv-pythonを入れるために必要らしい、、、しかしこのタイミングだとインストールできない
