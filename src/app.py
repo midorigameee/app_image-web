@@ -129,11 +129,15 @@ def getFileCreatedTime(filename):
     if os.name == "nt": # Win用
         t = os.path.getctime(filename)
         d = datetime.datetime.fromtimestamp(t)
-    else:   # Mac用（Linuxは分からん、、、）
-        t = os.stat(filename).st_birthtime
-        d = datetime.datetime.fromtimestamp(t)
+        return d
+    else:   # Win以外
+        try:
+            t = os.stat(filename).st_birthtime
+            d = datetime.datetime.fromtimestamp(t)
+            return d
+        except AttributeError:
+            return "None"
 
-    return d
 
 
 def checkImgExtension(img_list):
