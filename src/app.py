@@ -102,6 +102,23 @@ def delete():
         )
 
 
+@app.route('/app_list', methods=['GET'])
+def app_list():
+    if "app_name" not in request.args:
+        print("[EXECUTE APP]App name is not defined.")
+        return render_template(
+            "app_list.html"
+            )
+
+    print("[EXECUTE APP]request.args[app_name] : {}".format(request.args["app_name"]))
+
+    if request.args["app_name"] == "actress_classify":
+        return redirect(url_for('actress_classify'))
+    else:
+        print("[EXECUTE APP]App_name is not suitable.")
+        return redirect(url_for('index'))
+
+
 # ./image/filenameのパスを生成するメソッド
 def createImgPath(filename):
     filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
