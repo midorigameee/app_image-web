@@ -1,3 +1,2 @@
-# アップロード画像だけを無視する
-src/static/images/*.jpg
-src/static/images/*.png
+# アップロード画像を無視する
+src/static/images/
