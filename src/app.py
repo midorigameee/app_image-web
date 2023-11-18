@@ -142,9 +142,10 @@ def getFileCreatedTime(filename):
 
 def checkImgExtension(img_list):
     checked_list = []
+    extension_list = [".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"]
 
     for i, img in enumerate(img_list):
-        if os.path.splitext(img)[1] == '.jpg':
+        if (os.path.splitext(img)[1] in extension_list):
             checked_list.append(img)
 
     return checked_list
