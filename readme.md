@@ -71,3 +71,14 @@ $ docker imare rm [IMAGE ID]
 
 ## pip
 $ pip freeze > requirements.txt
+
+## git
+### ブランチ操作
+ブランチの確認(-a無しだとローカルのブランチだけ確認)
+> $ git branch -a
+
+ローカルブランチの削除(pushされていない差分無視なら-dじゃなくて-D)
+> $ git branch -d hogehoge
+
+リモートブランチの削除
+> $ git push --delete origin hogehoge
