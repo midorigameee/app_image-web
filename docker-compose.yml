@@ -2,7 +2,7 @@ version: '3'
 services:
   python3:
     restart: always
-    build: .  # Dockerfileをimageとして読み込んでいるという意味
+    build: .
     container_name: 'python3'
     ports:
       - 5000:5000
@@ -10,6 +10,5 @@ services:
     tty: true
     volumes:
       - ./src:/root/python_app
-    # 動作確認用にlsコマンドを実行している
     command: >-
       bash -c 'cd /root/python_app; pip install --root-user-action=ignore -r ./requirements.txt; python ./app.py'
