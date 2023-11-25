@@ -1,3 +1,5 @@
 # アップロード画像を無視する
 src/static/images/
 src/static/temp/
+
+.vscode/
