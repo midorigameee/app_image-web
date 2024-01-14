@@ -141,14 +141,26 @@ def actress_classify():
             fpath = createImgPath(fname)
             filepath_list.append(fpath)
 
+        thumbnails_name_list = checkImgExtension(os.listdir(os.path.join("static", "thumbnails")))
+        thumbnails_path_list = []
+        for i, tmb in enumerate(thumbnails_name_list):
+            tmb_path = createTmbPath(tmb)
+            thumbnails_path_list.append(tmb_path)
+            thumbnails_name_list[i] = os.path.splitext(thumbnails_name_list[i])[0]
+
         print("[ACTRESS CLASSIFY]filename_list : {}".format(filename_list))
         print("[ACTRESS CLASSIFY]filepath_list : {}".format(filepath_list))
+        print("[ACTRESS CLASSIFY]thumbnails_list : {}".format(thumbnails_name_list))
+        print("[ACTRESS CLASSIFY]thumbnails_list : {}".format(thumbnails_path_list))
 
         return render_template(
             "actress_classify.html",
             list_len=len(filename_list),
             filename_list=filename_list,
-            filepath_list=filepath_list
+            filepath_list=filepath_list,
+            thumbnails_list_len=len(thumbnails_name_list),
+            thumbnails_name_list=thumbnails_name_list,
+            thumbnails_path_list=thumbnails_path_list
             )
     
     elif request.method == 'POST':
@@ -187,6 +199,16 @@ def createImgPath(filename):
     return filepath
 
 
+# ./thumbnails/filenameのパスを生成するメソッド
+def createTmbPath(filename):
+    filepath = os.path.join("thumbnails", filename)
+
+    if os.name == "nt":
+        filepath = converUrlForHtml(filepath)
+
+    return filepath
+
+
 # Windows環境でos.path.joinを使ってURL作成するとスラッシュがバックスラッシュになってしまうので修正するメソッド
 def converUrlForHtml(url):
     return url.replace("\\", "/")
@@ -212,7 +234,6 @@ def getFileCreatedTime(filename):
             return d
         except AttributeError:
             return "None"
-
 
 
 def checkImgExtension(img_list):
